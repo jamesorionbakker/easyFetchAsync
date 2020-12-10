@@ -1,52 +1,34 @@
 class easyFetch {
-    get(url){
-        return new Promise((resolve,reject) => {
-            fetch(url)
-            .then(res => res.json())
-            .then(data => resolve(data))
-            .catch(err => reject(err));
-        })
+    async get(url) {
+        let response = await fetch(url);
+        let resData = await response.json();
+        return resData;
     }
-    post(url,data){
-        return new Promise((resolve,reject) => {
-            fetch(url,{
-                method: 'POST',
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            })
-            .then(res => res.json())
-            .then(data => resolve(data))
-            .catch(err => reject(data));
+    async post(url, data) {
+        let response = await fetch(url, {
+            method: 'POST',
+            headers: {'content-type': 'application/json'},
+            body: JSON.stringify(data)
         })
+        let resData = await response.json();
+        return resData;
     }
-    put(url,data){
-        return new Promise((resolve,reject) => {
-            fetch(url, {
-                method: 'PUT',
-                headers: {
-                    'content-type': 'application/json'
-                    
-                },
-                body: JSON.stringify(data)
-            })
-            .then(res => res.json())
-            .then(data => resolve(data))
-            .catch(err => reject(err))
+    async put(url, data) {
+        let response = await fetch(url, {
+            method: 'PUT',
+            headers: {'content-type': 'application/json'},
+            body: JSON.stringify(data)
         })
+        let resData = await response.json();
+        return resData;
     }
-    delete(url){
-        return new Promise((resolve,reject) => {
-            fetch(url, {
-                method: 'DELETE',
-                headers: {
-                    'content-type': 'application/json'
-                }
-            })
-            .then(res => res.json())
-            .then(date => resolve('item deleted'))
-            .catch(err => reject(err))
+    async delete(url) {
+        let response = await fetch(url, {
+            method: 'DELETE',
+            headers: {'content-type': 'application/json'}
         })
+        let resData = await 'resource deleted';
+        return resData;
     }
 }
+
