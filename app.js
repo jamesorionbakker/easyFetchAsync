@@ -1,4 +1,4 @@
-const http = new easyFetch;
+const http = new easyFetchAsync;
 
 //Get Users
 

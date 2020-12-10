@@ -1,4 +1,4 @@
-class easyFetch {
+class easyFetchAsync {
     async get(url) {
         let response = await fetch(url);
         let resData = await response.json();
